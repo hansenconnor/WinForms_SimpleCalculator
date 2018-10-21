@@ -16,5 +16,12 @@ namespace WinForms_SimpleCalculator
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Display Help Form dialog
+            var helpForm = new HelpForm();
+            helpForm.Show();
+        }
     }
 }
