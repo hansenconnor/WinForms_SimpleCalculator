@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinForms_SimpleCalculator
 {
-    public partial class CalculatorForm : Form
+    public partial class HelpForm : Form
     {
-        public CalculatorForm()
+        public HelpForm()
         {
             InitializeComponent();
         }
