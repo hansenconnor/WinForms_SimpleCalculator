@@ -17,6 +17,16 @@ namespace WinForms_SimpleCalculator
             InitializeComponent();
         }
 
+        // Define struct to hold value from form fields
+        public enum Units { Metric, Imperial };
+        public struct CalculatorFormData
+        {
+            public int mass1;
+            public int mass2;
+            public int distance;
+            public string email;
+            public Units units;
+        };
 
         // Displays help form
         private void button2_Click(object sender, EventArgs e)
@@ -39,9 +49,73 @@ namespace WinForms_SimpleCalculator
         private void calculateButton_Click(object sender, EventArgs e)
         {
             // Get form values
+            // ... Create struct on stack.
+            CalculatorFormData data = new CalculatorFormData();
+            
+            // Get the checked radio button
+            foreach (var control in unitsRadioGroup.Controls)
+            {
+                RadioButton radio = control as RadioButton;
+
+                if (radio != null && radio.Checked && radio.Name == "radioKilogramsMeters")
+                {
+                    data.units = Units.Metric;
+                }
+                else if (radio != null && radio.Checked && radio.Name == "radioPoundsFeet")
+                {
+                    data.units = Units.Imperial;
+                } else
+                {
+                    // default
+                    data.units = Units.Metric;
+                }
+            }
+
+            // Validate email field
+            if (!IsValidEmail(emailField.Text))
+            {
+                // Display input validation error on form
+                MessageBox.Show("Please enter a valid email address...", "Error");
+                return;
+            } else
+            {
+                data.email = emailField.Text;
+            }
+
+            // Input is validated by the control itself for the following
+            data.mass1      = Convert.ToInt32(mass1.Value);
+            data.mass2      = Convert.ToInt32(mass2.Value);
+            data.distance   = Convert.ToInt32(distance.Value);
+
+            // Pass data to calculation function and 
+            calculateForce(data);
+
+            // Pass the result
+        }
 
 
-            // 
+
+        // Function for email validation
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+
+        public int calculateForce(CalculatorFormData data)
+        {
+            // Create new SolutionForm instance and pass the form data
+            Form solutionForm = new SolutionForm();
+            return 0;
         }
     }
 }

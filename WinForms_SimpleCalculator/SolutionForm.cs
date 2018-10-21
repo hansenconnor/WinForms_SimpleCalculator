@@ -12,9 +12,13 @@ namespace WinForms_SimpleCalculator
 {
     public partial class SolutionForm : Form
     {
-        public SolutionForm()
+        public SolutionForm(CalculatorForm data)
         {
             InitializeComponent();
+
+            // Receive form data struct from Calculator Form and calculate result
+
+
         }
     }
 }

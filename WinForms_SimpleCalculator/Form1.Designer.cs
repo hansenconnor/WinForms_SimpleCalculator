@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.unitsRadioGroup = new System.Windows.Forms.GroupBox();
             this.radioPoundsFeet = new System.Windows.Forms.RadioButton();
             this.radioKilogramsMeters = new System.Windows.Forms.RadioButton();
             this.mass1 = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +45,7 @@
             this.helpButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.emailField = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.unitsRadioGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mass1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mass2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distance)).BeginInit();
@@ -65,19 +65,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Gravitational Attraction Calculator";
             // 
-            // groupBox1
+            // unitsRadioGroup
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.radioPoundsFeet);
-            this.groupBox1.Controls.Add(this.radioKilogramsMeters);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(96, 82);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 74);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Units for Calculation";
+            this.unitsRadioGroup.BackColor = System.Drawing.Color.Transparent;
+            this.unitsRadioGroup.Controls.Add(this.radioPoundsFeet);
+            this.unitsRadioGroup.Controls.Add(this.radioKilogramsMeters);
+            this.unitsRadioGroup.ForeColor = System.Drawing.Color.White;
+            this.unitsRadioGroup.Location = new System.Drawing.Point(96, 82);
+            this.unitsRadioGroup.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.unitsRadioGroup.Name = "unitsRadioGroup";
+            this.unitsRadioGroup.Size = new System.Drawing.Size(200, 74);
+            this.unitsRadioGroup.TabIndex = 1;
+            this.unitsRadioGroup.TabStop = false;
+            this.unitsRadioGroup.Text = "Units for Calculation";
             // 
             // radioPoundsFeet
             // 
@@ -86,13 +86,13 @@
             this.radioPoundsFeet.Name = "radioPoundsFeet";
             this.radioPoundsFeet.Size = new System.Drawing.Size(106, 17);
             this.radioPoundsFeet.TabIndex = 1;
-            this.radioPoundsFeet.TabStop = true;
             this.radioPoundsFeet.Text = "Pounds and Feet";
             this.radioPoundsFeet.UseVisualStyleBackColor = true;
             // 
             // radioKilogramsMeters
             // 
             this.radioKilogramsMeters.AutoSize = true;
+            this.radioKilogramsMeters.Checked = true;
             this.radioKilogramsMeters.Location = new System.Drawing.Point(7, 20);
             this.radioKilogramsMeters.Name = "radioKilogramsMeters";
             this.radioKilogramsMeters.Size = new System.Drawing.Size(126, 17);
@@ -242,7 +242,7 @@
             this.Controls.Add(this.distance);
             this.Controls.Add(this.mass2);
             this.Controls.Add(this.mass1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.unitsRadioGroup);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(618, 405);
@@ -250,8 +250,8 @@
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.unitsRadioGroup.ResumeLayout(false);
+            this.unitsRadioGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mass1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mass2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distance)).EndInit();
@@ -264,7 +264,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox unitsRadioGroup;
         private System.Windows.Forms.RadioButton radioPoundsFeet;
         private System.Windows.Forms.RadioButton radioKilogramsMeters;
         private System.Windows.Forms.NumericUpDown mass1;

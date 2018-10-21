@@ -9,6 +9,7 @@ namespace WinForms_SimpleCalculator
 {
     public class Utilities
     {
+        // Reset all form controls
         public static void ResetAllControls(Control form)
         {
             foreach (Control control in form.Controls)
@@ -45,5 +46,8 @@ namespace WinForms_SimpleCalculator
                 }
             }
         }
+
+
+        // Calculate Gravitational Force
     }
 }
