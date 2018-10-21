@@ -87,10 +87,8 @@ namespace WinForms_SimpleCalculator
             data.mass2      = Convert.ToInt32(mass2.Value);
             data.distance   = Convert.ToInt32(distance.Value);
 
-            // Pass data to calculation function and 
-            calculateForce(data);
-
-            // Pass the result
+            // Send data struct to solution form
+            displaySolutionForm(data);
         }
 
 
@@ -111,11 +109,11 @@ namespace WinForms_SimpleCalculator
 
 
 
-        public int calculateForce(CalculatorFormData data)
+        public void displaySolutionForm(CalculatorFormData data)
         {
             // Create new SolutionForm instance and pass the form data
-            Form solutionForm = new SolutionForm();
-            return 0;
+            Form solutionForm = new SolutionForm(data);
+            solutionForm.Show();
         }
     }
 }

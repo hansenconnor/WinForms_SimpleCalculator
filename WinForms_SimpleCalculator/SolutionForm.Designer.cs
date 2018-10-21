@@ -29,7 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SolutionForm));
+            this.ResultLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // ResultLabel
+            // 
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.ResultLabel.ForeColor = System.Drawing.Color.Coral;
+            this.ResultLabel.Location = new System.Drawing.Point(251, 165);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(100, 36);
+            this.ResultLabel.TabIndex = 0;
+            this.ResultLabel.Text = "Result";
             // 
             // SolutionForm
             // 
@@ -37,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(602, 366);
+            this.Controls.Add(this.ResultLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(618, 405);
             this.MinimumSize = new System.Drawing.Size(618, 405);
@@ -44,9 +57,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solution";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label ResultLabel;
     }
 }

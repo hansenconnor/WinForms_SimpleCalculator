@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WinForms_SimpleCalculator.CalculatorForm;
 
 namespace WinForms_SimpleCalculator
 {
@@ -49,5 +50,20 @@ namespace WinForms_SimpleCalculator
 
 
         // Calculate Gravitational Force
+        public static double calculateGravitationalForce(CalculatorFormData data)
+        {
+            double F = 0;
+            
+            // Gravitational Constant
+            const double G = 6.6720e-11;
+
+            // Calculate mass product
+            int massProd = data.mass1 * data.mass2;
+
+            // Calculate force
+            F = G * (massProd / 2);
+             
+            return F;
+        }
     }
 }
