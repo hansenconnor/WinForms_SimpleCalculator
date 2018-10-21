@@ -18,7 +18,7 @@ namespace WinForms_SimpleCalculator
                 if (control is TextBox)
                 {
                     TextBox textBox = (TextBox)control;
-                    textBox.Text = null;
+                    textBox.Text = textBox.Tag.ToString();
                 }
 
                 if (control is ComboBox)
@@ -43,7 +43,7 @@ namespace WinForms_SimpleCalculator
                 if (control is NumericUpDown)
                 {
                     NumericUpDown numericUpDown = (NumericUpDown)control;
-                    numericUpDown.Value = 0;
+                    numericUpDown.Value = numericUpDown.Minimum;
                 }
             }
         }
@@ -60,8 +60,11 @@ namespace WinForms_SimpleCalculator
             // Calculate mass product
             int massProd = data.mass1 * data.mass2;
 
+            // Distance squared
+            int distSquared = data.distance ^ 2;
+
             // Calculate force
-            F = G * (massProd / 2);
+            F = G * (massProd / distSquared);
              
             return F;
         }

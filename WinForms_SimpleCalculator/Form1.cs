@@ -74,11 +74,16 @@ namespace WinForms_SimpleCalculator
             // Validate email field
             if (!IsValidEmail(emailField.Text))
             {
-                // Display input validation error on form
+                // Display input validation error in message box and inline
                 MessageBox.Show("Please enter a valid email address...", "Error");
+                emailErrorLabel.Show();
+                emailLabel.Hide();
                 return;
             } else
             {
+                // Set defaults for email labels
+                emailErrorLabel.Hide();
+                emailLabel.Show();
                 data.email = emailField.Text;
             }
 
@@ -114,6 +119,31 @@ namespace WinForms_SimpleCalculator
             // Create new SolutionForm instance and pass the form data
             Form solutionForm = new SolutionForm(data);
             solutionForm.Show();
+        }
+
+
+
+        // Dynamically updated units labels on radio button click
+        private void radioKilogramsMeters_CheckedChanged(object sender, EventArgs e)
+        {
+            // Set units to Metric
+            mass1Units.Text     = "Kg";
+            mass2Units.Text     = "Kg";
+            distanceUnits.Text  = "m";
+        }
+
+        // Dynamically updated units labels on radio button click
+        private void radioPoundsFeet_CheckedChanged(object sender, EventArgs e)
+        {
+            // Set units to Imperial
+            mass1Units.Text = "lbs";
+            mass2Units.Text = "lbs";
+            distanceUnits.Text = "ft";
+        }
+
+        private void emailField_Enter(object sender, EventArgs e)
+        {
+            emailField.SelectAll();
         }
     }
 }

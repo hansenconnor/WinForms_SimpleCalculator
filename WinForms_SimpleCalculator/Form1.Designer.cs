@@ -43,8 +43,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
             this.emailField = new System.Windows.Forms.TextBox();
+            this.mass1Units = new System.Windows.Forms.Label();
+            this.mass2Units = new System.Windows.Forms.Label();
+            this.distanceUnits = new System.Windows.Forms.Label();
+            this.emailErrorLabel = new System.Windows.Forms.Label();
             this.unitsRadioGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mass1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mass2)).BeginInit();
@@ -88,6 +92,7 @@
             this.radioPoundsFeet.TabIndex = 1;
             this.radioPoundsFeet.Text = "Pounds and Feet";
             this.radioPoundsFeet.UseVisualStyleBackColor = true;
+            this.radioPoundsFeet.CheckedChanged += new System.EventHandler(this.radioPoundsFeet_CheckedChanged);
             // 
             // radioKilogramsMeters
             // 
@@ -100,10 +105,16 @@
             this.radioKilogramsMeters.TabStop = true;
             this.radioKilogramsMeters.Text = "Kilograms and Meters";
             this.radioKilogramsMeters.UseVisualStyleBackColor = true;
+            this.radioKilogramsMeters.CheckedChanged += new System.EventHandler(this.radioKilogramsMeters_CheckedChanged);
             // 
             // mass1
             // 
             this.mass1.Location = new System.Drawing.Point(176, 162);
+            this.mass1.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.mass1.Name = "mass1";
             this.mass1.Size = new System.Drawing.Size(120, 20);
             this.mass1.TabIndex = 2;
@@ -111,6 +122,11 @@
             // mass2
             // 
             this.mass2.Location = new System.Drawing.Point(176, 188);
+            this.mass2.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.mass2.Name = "mass2";
             this.mass2.Size = new System.Drawing.Size(120, 20);
             this.mass2.TabIndex = 3;
@@ -118,9 +134,24 @@
             // distance
             // 
             this.distance.Location = new System.Drawing.Point(176, 215);
+            this.distance.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.distance.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.distance.Name = "distance";
             this.distance.Size = new System.Drawing.Size(120, 20);
             this.distance.TabIndex = 4;
+            this.distance.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -202,16 +233,16 @@
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label5
+            // emailLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(100, 247);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Where should we send your calculation?";
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
+            this.emailLabel.ForeColor = System.Drawing.Color.White;
+            this.emailLabel.Location = new System.Drawing.Point(100, 247);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(199, 13);
+            this.emailLabel.TabIndex = 12;
+            this.emailLabel.Text = "Where should we send your calculation?";
             // 
             // emailField
             // 
@@ -220,7 +251,54 @@
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(193, 20);
             this.emailField.TabIndex = 5;
+            this.emailField.Tag = "ex: name@mail.com";
             this.emailField.Text = "ex: name@mail.com";
+            this.emailField.Enter += new System.EventHandler(this.emailField_Enter);
+            // 
+            // mass1Units
+            // 
+            this.mass1Units.AutoSize = true;
+            this.mass1Units.BackColor = System.Drawing.Color.Transparent;
+            this.mass1Units.ForeColor = System.Drawing.Color.White;
+            this.mass1Units.Location = new System.Drawing.Point(147, 164);
+            this.mass1Units.Name = "mass1Units";
+            this.mass1Units.Size = new System.Drawing.Size(20, 13);
+            this.mass1Units.TabIndex = 13;
+            this.mass1Units.Text = "Kg";
+            // 
+            // mass2Units
+            // 
+            this.mass2Units.AutoSize = true;
+            this.mass2Units.BackColor = System.Drawing.Color.Transparent;
+            this.mass2Units.ForeColor = System.Drawing.Color.White;
+            this.mass2Units.Location = new System.Drawing.Point(147, 190);
+            this.mass2Units.Name = "mass2Units";
+            this.mass2Units.Size = new System.Drawing.Size(20, 13);
+            this.mass2Units.TabIndex = 14;
+            this.mass2Units.Text = "Kg";
+            // 
+            // distanceUnits
+            // 
+            this.distanceUnits.AutoSize = true;
+            this.distanceUnits.BackColor = System.Drawing.Color.Transparent;
+            this.distanceUnits.ForeColor = System.Drawing.Color.White;
+            this.distanceUnits.Location = new System.Drawing.Point(148, 217);
+            this.distanceUnits.Name = "distanceUnits";
+            this.distanceUnits.Size = new System.Drawing.Size(15, 13);
+            this.distanceUnits.TabIndex = 15;
+            this.distanceUnits.Text = "m";
+            // 
+            // emailErrorLabel
+            // 
+            this.emailErrorLabel.AutoSize = true;
+            this.emailErrorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.emailErrorLabel.ForeColor = System.Drawing.Color.Coral;
+            this.emailErrorLabel.Location = new System.Drawing.Point(100, 247);
+            this.emailErrorLabel.Name = "emailErrorLabel";
+            this.emailErrorLabel.Size = new System.Drawing.Size(100, 13);
+            this.emailErrorLabel.TabIndex = 16;
+            this.emailErrorLabel.Text = "* Enter a valid email";
+            this.emailErrorLabel.Visible = false;
             // 
             // CalculatorForm
             // 
@@ -230,8 +308,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(602, 366);
+            this.Controls.Add(this.emailErrorLabel);
+            this.Controls.Add(this.distanceUnits);
+            this.Controls.Add(this.mass2Units);
+            this.Controls.Add(this.mass1Units);
             this.Controls.Add(this.emailField);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.pictureBox1);
@@ -277,8 +359,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailField;
+        private System.Windows.Forms.Label mass1Units;
+        private System.Windows.Forms.Label mass2Units;
+        private System.Windows.Forms.Label distanceUnits;
+        private System.Windows.Forms.Label emailErrorLabel;
     }
 }
 

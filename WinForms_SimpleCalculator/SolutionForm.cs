@@ -21,7 +21,7 @@ namespace WinForms_SimpleCalculator
             double result = Utilities.calculateGravitationalForce(data);
 
             // Update result label to display the result
-            ResultLabel.Text = result.ToString();
+            ResultLabel.Text = result.ToString() + "Newtons";
         }
     }
 }
