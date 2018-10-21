@@ -17,11 +17,31 @@ namespace WinForms_SimpleCalculator
             InitializeComponent();
         }
 
+
+        // Displays help form
         private void button2_Click(object sender, EventArgs e)
         {
             // Display Help Form dialog
             var helpForm = new HelpForm();
             helpForm.Show();
+        }
+
+
+        // Resets fields and inputs to default values
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            // Reset all controls
+            Utilities.ResetAllControls(this);
+        }
+
+
+        // Calculate and display solution form
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            // Get form values
+
+
+            // 
         }
     }
 }

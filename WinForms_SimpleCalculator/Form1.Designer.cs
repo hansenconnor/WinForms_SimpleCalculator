@@ -31,24 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioKilogramsMeters = new System.Windows.Forms.RadioButton();
             this.radioPoundsFeet = new System.Windows.Forms.RadioButton();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.radioKilogramsMeters = new System.Windows.Forms.RadioButton();
+            this.mass1 = new System.Windows.Forms.NumericUpDown();
+            this.mass2 = new System.Windows.Forms.NumericUpDown();
+            this.distance = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.calculateButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.emailField = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mass1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mass2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,17 +79,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Units for Calculation";
             // 
-            // radioKilogramsMeters
-            // 
-            this.radioKilogramsMeters.AutoSize = true;
-            this.radioKilogramsMeters.Location = new System.Drawing.Point(7, 20);
-            this.radioKilogramsMeters.Name = "radioKilogramsMeters";
-            this.radioKilogramsMeters.Size = new System.Drawing.Size(126, 17);
-            this.radioKilogramsMeters.TabIndex = 0;
-            this.radioKilogramsMeters.TabStop = true;
-            this.radioKilogramsMeters.Text = "Kilograms and Meters";
-            this.radioKilogramsMeters.UseVisualStyleBackColor = true;
-            // 
             // radioPoundsFeet
             // 
             this.radioPoundsFeet.AutoSize = true;
@@ -101,26 +90,37 @@
             this.radioPoundsFeet.Text = "Pounds and Feet";
             this.radioPoundsFeet.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // radioKilogramsMeters
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(176, 162);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.radioKilogramsMeters.AutoSize = true;
+            this.radioKilogramsMeters.Location = new System.Drawing.Point(7, 20);
+            this.radioKilogramsMeters.Name = "radioKilogramsMeters";
+            this.radioKilogramsMeters.Size = new System.Drawing.Size(126, 17);
+            this.radioKilogramsMeters.TabIndex = 0;
+            this.radioKilogramsMeters.TabStop = true;
+            this.radioKilogramsMeters.Text = "Kilograms and Meters";
+            this.radioKilogramsMeters.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // mass1
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(176, 188);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 3;
+            this.mass1.Location = new System.Drawing.Point(176, 162);
+            this.mass1.Name = "mass1";
+            this.mass1.Size = new System.Drawing.Size(120, 20);
+            this.mass1.TabIndex = 2;
             // 
-            // numericUpDown3
+            // mass2
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(176, 215);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown3.TabIndex = 4;
+            this.mass2.Location = new System.Drawing.Point(176, 188);
+            this.mass2.Name = "mass2";
+            this.mass2.Size = new System.Drawing.Size(120, 20);
+            this.mass2.TabIndex = 3;
+            // 
+            // distance
+            // 
+            this.distance.Location = new System.Drawing.Point(176, 215);
+            this.distance.Name = "distance";
+            this.distance.Size = new System.Drawing.Size(120, 20);
+            this.distance.TabIndex = 4;
             // 
             // label2
             // 
@@ -168,6 +168,7 @@
             this.calculateButton.TabIndex = 6;
             this.calculateButton.Text = "Calculate";
             this.calculateButton.UseVisualStyleBackColor = false;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // pictureBox1
             // 
@@ -181,24 +182,25 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // clearButton
             // 
-            this.button1.Location = new System.Drawing.Point(96, 300);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 41);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.clearButton.Location = new System.Drawing.Point(96, 300);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(87, 41);
+            this.clearButton.TabIndex = 7;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // button2
+            // helpButton
             // 
-            this.button2.Location = new System.Drawing.Point(372, 238);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 41);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Help";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.helpButton.Location = new System.Drawing.Point(372, 238);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(135, 41);
+            this.helpButton.TabIndex = 8;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -211,14 +213,14 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Where should we send your calculation?";
             // 
-            // textBox1
+            // emailField
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.textBox1.Location = new System.Drawing.Point(103, 263);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "ex: name@mail.com";
+            this.emailField.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.emailField.Location = new System.Drawing.Point(103, 263);
+            this.emailField.Name = "emailField";
+            this.emailField.Size = new System.Drawing.Size(193, 20);
+            this.emailField.TabIndex = 5;
+            this.emailField.Text = "ex: name@mail.com";
             // 
             // CalculatorForm
             // 
@@ -228,18 +230,18 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(602, 366);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.emailField);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.calculateButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.distance);
+            this.Controls.Add(this.mass2);
+            this.Controls.Add(this.mass1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -250,9 +252,9 @@
             this.Text = "Calculator";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mass1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mass2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -265,18 +267,18 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioPoundsFeet;
         private System.Windows.Forms.RadioButton radioKilogramsMeters;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown mass1;
+        private System.Windows.Forms.NumericUpDown mass2;
+        private System.Windows.Forms.NumericUpDown distance;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox emailField;
     }
 }
 
